@@ -4,10 +4,10 @@
  * @github: https://github.com/lyff1006
  * @lastEditors: 小羽
  * @Date: 2019-10-09 21:55:04
- * @LastEditTime: 2020-09-07 15:31:10
+ * @LastEditTime: 2020-09-12 10:53:30
  * @Copyright: 1.0.0
  */
-
+const path = require("path")
 function addStyleResource(rule) {
     rule.use('style-resource')
         .loader('style-resources-loader')

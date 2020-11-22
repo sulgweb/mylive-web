@@ -1,29 +1,40 @@
+<!--
+ * @description: 
+ * @author: 小羽
+ * @github: https://github.com/lyff1006
+ * @lastEditors: 小羽
+ * @Date: 2019-10-09 21:41:17
+ * @LastEditTime: 2020-09-12 12:53:56
+ * @Copyright: 1.0.0
+-->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <Button type="primary">测试</Button>
+    <live-header v-if="!$route.meta.noHeader"></live-header>
+    <keep-alive>     <!--使用keep-alive会将页面缓存-->
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive> 
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {common} from "feather-common"
+import liveHeader from "@/components/liveHeader"
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    HelloWorld
-  }
+    liveHeader
+  },
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  min-width: 720px;
 }
+
 </style>

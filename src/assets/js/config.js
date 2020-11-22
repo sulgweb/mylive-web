@@ -4,11 +4,11 @@
  * @github: https://github.com/lyff1006
  * @lastEditors: 小羽
  * @Date: 2020-09-01 20:20:07
- * @LastEditTime: 2020-09-07 15:24:43
+ * @LastEditTime: 2020-09-19 01:20:37
  * @Copyright: 1.0.0
  */
 const env = process.env
-const baseUrl = env.NODE_ENV==="development"?"http://127.0.0.1":"https://live.weblyff.cn"
+const baseUrl = env.NODE_ENV==="development"?"http://localhost":"https://www.example.com"
 const baseEnv = {
     env:env.NODE_ENV,//当前环境
     mode:env.VUE_APP_CURRENTMODE,//当前模式
