@@ -4,7 +4,7 @@
  * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2020-01-16 23:02:22
- * @LastEditTime: 2020-11-23 00:43:50
+ * @LastEditTime: 2021-06-07 23:54:51
  * @Copyright: 1.0.0
 -->
 <template>
@@ -20,14 +20,15 @@
         </div>
       </div>
       <div class="video-content-main">
-        <div class="barrage-block" :style="{ top: '40px' }">
+        <!-- <div class="barrage-block" :style="{ top: '40px' }">
           <span
             class="barrage-block-item"
             v-for="(item, index) of barrageMsgList"
             :key="index + item"
             >{{ item.msg }}</span
           >
-        </div>
+        </div> -->
+        <BarrageStream></BarrageStream>
         <video id="videoElement" width="100%" height="100%" controls></video>
       </div>
     </section>
@@ -41,6 +42,7 @@
 import flvjs from "flv.js";
 import { common } from "@/assets/js/common.js";
 import Barrage from "./barrage.vue";
+import BarrageStream from "./barrageStream.vue";
 import { mapState, mapMutations } from "vuex";
 
 export default {
@@ -51,6 +53,7 @@ export default {
   },
   components: {
     Barrage,
+    BarrageStream,
   },
   computed: {
     ...mapState({
@@ -125,19 +128,6 @@ export default {
       position: relative;
       height: calc(100% - 60px);
     }
-    .barrage-block {
-      z-index: 1;
-      position: absolute;
-      height: 40px;
-      //border-bottom: #fff 1px solid;
-      width: calc(100% - 40px);
-      color: #fff;
-      &-item {
-        position: absolute;
-        animation: barrage 5s linear;
-        animation-fill-mode: forwards;
-      }
-    }
     video {
       object-fit: fill;
     }
@@ -149,17 +139,6 @@ export default {
     margin-right: 20px;
     box-sizing: border-box;
     padding: 20px 0;
-  }
-}
-
-@keyframes barrage {
-  from {
-    left: 100%;
-    transform: translateX(0);
-  }
-  to {
-    left: 0;
-    transform: translateX(-200%);
   }
 }
 </style>

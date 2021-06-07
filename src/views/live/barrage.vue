@@ -4,7 +4,7 @@
  * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2020-01-28 21:33:07
- * @LastEditTime: 2021-06-07 21:43:49
+ * @LastEditTime: 2021-06-07 23:47:01
  * @Copyright: 1.0.0
 -->
 <template>
@@ -96,6 +96,7 @@ export default {
           room: this.livingRoom,
           func: "chatLiveRoom",
           data: {
+            id: common.getCode(8),
             user: this.currentUser.name,
             msg: this.battageMsg,
           },
