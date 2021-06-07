@@ -1,7 +1,7 @@
 /*
  * @description: 
  * @author: 小羽
- * @github: https://github.com/lyff1006
+ * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2020-09-03 00:52:35
  * @LastEditTime: 2020-09-18 00:53:45
@@ -9,23 +9,23 @@
  */
 import api from "@/api/index.js"
 const state = {
-    roomList:[]
+    roomList: []
 }
 const actions = {
-    async setRoomList({commit},data){
+    async setRoomList({ commit }, data) {
         let res = await api.livingRoomApi.getRoomList(data)
-        commit("updateRoomList",res)
+        commit("updateRoomList", res)
     }
 }
 const mutations = {
-    updateRoomList(state,data){
+    updateRoomList(state, data) {
         state.roomList = data
     }
 }
 const getters = {}
 
 export default {
-    namespace:"livingRoom",
+    namespace: "livingRoom",
     state,
     actions,
     mutations,

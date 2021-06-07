@@ -1,7 +1,7 @@
 /*
  * @description: 
  * @author: 小羽
- * @github: https://github.com/lyff1006
+ * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2019-10-09 21:59:23
  * @LastEditTime: 2020-09-12 12:16:29
@@ -13,7 +13,7 @@ import baseEnv from "@/assets/js/config.js"
 Vue.use(Router)
 
 export default new Router({
-    mode:baseEnv.mode==="electron"?"hash":"history",
+    mode: baseEnv.mode === "electron" ? "hash" : "history",
     routes: [
         {
             path: '/',
@@ -23,17 +23,17 @@ export default new Router({
         },
         {
             path: '/index',
-            name:"index",
-            meta:{
-                noHeader:false
+            name: "index",
+            meta: {
+                noHeader: false
             },
             component: () => import("@/views/home/roomList.vue"),
         },
         {
             path: "/room",
-            name:"room",
-            meta:{
-                noHeader:false
+            name: "room",
+            meta: {
+                noHeader: false
             },
             component: () => import("@/views/live/room.vue")
         }

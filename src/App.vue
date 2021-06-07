@@ -1,7 +1,7 @@
 <!--
  * @description: 
  * @author: 小羽
- * @github: https://github.com/lyff1006
+ * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2019-10-09 21:41:17
  * @LastEditTime: 2020-09-12 12:53:56
@@ -10,31 +10,31 @@
 <template>
   <div id="app">
     <live-header v-if="!$route.meta.noHeader"></live-header>
-    <keep-alive>     <!--使用keep-alive会将页面缓存-->
+    <keep-alive>
+      <!--使用keep-alive会将页面缓存-->
       <router-view v-if="$route.meta.keepAlive"></router-view>
-    </keep-alive> 
+    </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
 <script>
-import {common} from "feather-common"
-import liveHeader from "@/components/liveHeader"
+import { common } from "feather-common";
+import liveHeader from "@/components/liveHeader";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    liveHeader
+    liveHeader,
   },
-}
+};
 </script>
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   min-width: 720px;
 }
-
 </style>

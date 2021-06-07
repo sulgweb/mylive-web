@@ -1,7 +1,7 @@
 <!--
  * @description: 
  * @author: 小羽
- * @github: https://github.com/lyff1006
+ * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2020-01-16 23:02:22
  * @LastEditTime: 2020-11-23 00:43:50
@@ -15,13 +15,18 @@
           <img :src="roomDetail.avatar" />
         </div>
         <div>
-          <div class="video-content-header-title">{{roomDetail.title}}</div>
-          <div class="video-content-header-anchor">{{roomDetail.name}}</div>
+          <div class="video-content-header-title">{{ roomDetail.title }}</div>
+          <div class="video-content-header-anchor">{{ roomDetail.name }}</div>
         </div>
       </div>
       <div class="video-content-main">
-        <div class="barrage-block" :style="{top:'40px'}">
-          <span class="barrage-block-item" v-for="(item,index) of barrageMsgList" :key="index+item">{{item.msg}}</span>
+        <div class="barrage-block" :style="{ top: '40px' }">
+          <span
+            class="barrage-block-item"
+            v-for="(item, index) of barrageMsgList"
+            :key="index + item"
+            >{{ item.msg }}</span
+          >
         </div>
         <video id="videoElement" width="100%" height="100%" controls></video>
       </div>
@@ -36,7 +41,7 @@
 import flvjs from "flv.js";
 import { common } from "@/assets/js/common.js";
 import Barrage from "./barrage.vue";
-import {mapState,mapMutations} from "vuex"
+import { mapState, mapMutations } from "vuex";
 
 export default {
   data() {
@@ -47,16 +52,18 @@ export default {
   components: {
     Barrage,
   },
-  computed:{
+  computed: {
     ...mapState({
-      barrageMsgList:state=>state.barrage.barrageMsgList
-    })
+      barrageMsgList: (state) => state.barrage.barrageMsgList,
+    }),
   },
   created() {},
   async mounted() {
     let urlData = this.$router.history.current.query;
     this.livingRoom = urlData.room;
-    this.roomDetail = await this.$api.livingRoomApi.getRoomDetail({id:this.livingRoom})
+    this.roomDetail = await this.$api.livingRoomApi.getRoomDetail({
+      id: this.livingRoom,
+    });
     this.$nextTick(() => {
       if (flvjs.isSupported()) {
         var videoElement = document.getElementById("videoElement");
