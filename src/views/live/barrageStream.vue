@@ -3,7 +3,7 @@
  * @Author: 小羽
  * @LastEditors: 小羽
  * @Date: 2021-06-07 21:53:30
- * @LastEditTime: 2021-06-07 23:58:35
+ * @LastEditTime: 2021-06-10 00:21:00
 -->
 <template>
   <div class="barrage-stream" ref="barrageStream">
@@ -22,7 +22,7 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 export default {
-  name: "barrage",
+  name: "barrageStream",
   data() {
     return {
       barrageStreamRect: {},
@@ -40,10 +40,13 @@ export default {
     // 获取弹幕轨道播放流的数量
     getBarrageStreamList() {
       console.log(this.$refs.barrageStream.getBoundingClientRect());
+      // 获取dom元素的信息
       this.barrageStreamRect = this.$refs.barrageStream.getBoundingClientRect();
+      // 计算轨道的数量
       this.barrageStreamListNum = Math.floor(
         (this.barrageStreamRect.height - 100) / 36
       );
+      // 初始化轨道
       this.barrageStreamList = [];
       for (let i = 0; i < this.barrageStreamListNum; i++) {
         this.barrageStreamList.push([]);
@@ -55,11 +58,13 @@ export default {
     barrageMsgList: {
       handler(newval) {
         if (newval.length) {
+          // 获取随机轨道下标
           let randomNum = Math.floor(Math.random() * this.barrageStreamListNum);
+          // 将弹幕推送到随机轨道中
           this.barrageStreamList[randomNum].push(newval[newval.length - 1]);
+          // 延时5s后，删除该弹幕。（时间与弹幕的播放时间有关）
           setTimeout(() => {
-            let shiftStr = this.barrageStreamList[randomNum].shift();
-            console.log("this.barrageStreamList", shiftStr.msg);
+            this.barrageStreamList[randomNum].shift();
           }, 5000);
         }
       },
