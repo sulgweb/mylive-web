@@ -4,7 +4,7 @@
  * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2020-08-31 01:26:26
- * @LastEditTime: 2020-11-23 00:19:50
+ * @LastEditTime: 2021-06-11 22:12:31
  * @Copyright: 1.0.0
 -->
 <template>
@@ -38,6 +38,9 @@
           </div>
         </section>
         <DropdownMenu slot="list">
+          <DropdownItem>
+            <div @click="gotoUserCenter">个人中心</div>
+          </DropdownItem>
           <DropdownItem>
             <div @click="userLogout">退出登录</div>
           </DropdownItem>
@@ -210,6 +213,7 @@ export default {
       });
       this.getUserInfo();
     },
+
     /**
      * @description: 退出登录
      * @Date: 2020-09-03 11:23:58
@@ -257,6 +261,17 @@ export default {
         }
       });
     },
+
+    /**
+     * @description: 跳转到个人中心
+     * @Date: 2021-06-11 21:32:37
+     * @author: 小羽
+     * @param {*}
+     * @return {*}
+     */
+    gotoUserCenter() {
+      this.$router.push({ path: "/userCenter" });
+    },
   },
 };
 </script>
@@ -270,7 +285,9 @@ export default {
   justify-content: center;
   padding: 0 20px;
   box-sizing: border-box;
-  position: relative;
+  width: 100%;
+  position: fixed;
+  top: 0;
   -webkit-app-region: drag;
   &-logo {
     font-size: 32px;

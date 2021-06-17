@@ -4,11 +4,14 @@
  * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2020-01-16 23:02:22
- * @LastEditTime: 2021-06-07 23:54:51
+ * @LastEditTime: 2021-06-11 22:12:50
  * @Copyright: 1.0.0
 -->
 <template>
-  <div class="room">
+  <div
+    class="room"
+    :style="{ marginTop: $route.meta.noHeader ? '0px' : '60px' }"
+  >
     <section class="video-content">
       <div class="video-content-header">
         <div class="video-content-header-avatar">

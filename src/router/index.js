@@ -4,7 +4,7 @@
  * @github: https://github.com/sulgweb
  * @lastEditors: 小羽
  * @Date: 2019-10-09 21:59:23
- * @LastEditTime: 2020-09-12 12:16:29
+ * @LastEditTime: 2021-06-11 21:49:58
  * @Copyright: 1.0.0
  */
 import Vue from 'vue'
@@ -36,6 +36,14 @@ export default new Router({
                 noHeader: false
             },
             component: () => import("@/views/live/room.vue")
+        },
+        {
+            path: "/userCenter",
+            name: "userCenter",
+            meta: {
+                noHeader: false
+            },
+            component: () => import("@/views/userCenter/index.vue")
         }
     ]
 })

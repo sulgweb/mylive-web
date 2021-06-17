@@ -3,7 +3,7 @@
  * @author: 小羽
  * @lastEditors: 小羽
  * @Date: 2020-08-31 15:39:16
- * @LastEditTime: 2020-10-15 01:17:08
+ * @LastEditTime: 2021-06-18 07:37:31
  * @Copyright: 1.0.0
  */
 import baseEnv from "@/assets/js/config.js"
@@ -40,6 +40,19 @@ class LivingRoom{
      */
     getRoomDetail(params){
         return axios.get(`${baseEnv.webUrl}/livingRoom/roomDetail`,{params:params}).then(res=>{
+            return res.data.data
+        })
+    }
+
+    /**
+     * @description: 通过用户id获取直播间信息
+     * @Date: 2021-06-18 07:34:33
+     * @author: 小羽
+     * @param {*} params
+     * @return {*}
+     */    
+    getRoomDetailByUserId(params){
+        return axios.get(`${baseEnv.webUrl}/livingRoom/roomDetailByUserId`,{params:params}).then(res=>{
             return res.data.data
         })
     }

@@ -8,7 +8,10 @@
  * @Copyright: 1.0.0
 -->
 <template>
-  <div class="home">
+  <div
+    class="home"
+    :style="{ marginTop: $route.meta.noHeader ? '0px' : '60px' }"
+  >
     <div class="type-list">
       <div class="type-list-box">
         <div class="type-list-box-title">
