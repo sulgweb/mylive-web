@@ -3,7 +3,7 @@
  * @Author: 小羽
  * @LastEditors: 小羽
  * @Date: 2021-06-11 21:33:59
- * @LastEditTime: 2021-06-18 07:47:20
+ * @LastEditTime: 2021-06-18 07:49:29
 -->
 
 <template>
@@ -29,10 +29,10 @@
           <span class="user-center-info-title">邮箱</span>
           <span class="user-center-info-text">{{currentUser.email}}</span>
         </div>
-        <div>
+        <!-- <div>
           <span class="user-center-info-title">直播间</span>
           <span class="user-center-info-text">{{currentUser.name}}</span>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
